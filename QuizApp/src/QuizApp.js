@@ -3,7 +3,7 @@ import { QuizService } from './service/QuizService.js';
 
 class QuizApp extends LitElement {
   static styles = css`
-    /* Voeg hier je stijlen toe */
+    
   `;
 
   constructor() {
@@ -14,12 +14,14 @@ class QuizApp extends LitElement {
 
   render() {
     return html`
-      ${this.isQuizFinished
-        ? html`<quiz-result .score="${this.quizService.getScore()}"></quiz-result>`
-        : html`<quiz-question
-                 .question="${this.quizService.getCurrentQuestion()}"
-                 @answer-selected="${this.handleAnswerSelected}"
-               ></quiz-question>`}
+      <div class="container">
+        ${this.isQuizFinished
+          ? html`<quiz-result .score="${this.quizService.getScore()}"></quiz-result>`
+          : html`<quiz-question
+                   .question="${this.quizService.getCurrentQuestion()}"
+                   @answer-selected="${this.handleAnswerSelected}"
+                 ></quiz-question>`}
+      </div>
     `;
   }
 
